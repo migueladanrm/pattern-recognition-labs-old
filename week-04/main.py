@@ -2,9 +2,21 @@ import tkinter as tk
 
 import tkinter.font as tkf
 
+import blueScreenMatting
+import histogramEq
+
+window = tk.Tk()
 
 def getButton(window, text, action):
     return tk.Button(window, text=text, font=tkf.Font(size=20), command=action)
+
+def hide():
+    global window
+    window.withdraw()
+
+def show():
+    global window
+    window.deiconify()
 
 def show31():
     ## Esto lo hacemos en archivos separados para cada ejercicio
@@ -14,11 +26,10 @@ def show31():
     tk.Label(window, text="Ejercicio 3.1: Color", font=tkf.Font(size=30)).pack(padx=120, pady=10)
 
 def show33():
+    hide()
     ## Esto lo hacemos en archivos separados para cada ejercicio
-    window = tk.Tk()
-    window.title("Semana 4")
+    blueScreenMatting.show(window)
 
-    tk.Label(window, text="Ejercicio 3.3: Fondo", font=tkf.Font(size=30)).pack(padx=120, pady=10)
 
 def show35():
     ## Esto lo hacemos en archivos separados para cada ejercicio
@@ -29,10 +40,8 @@ def show35():
 
 def show36():
     ## Esto lo hacemos en archivos separados para cada ejercicio
-    window = tk.Tk()
-    window.title("Semana 4")
-
-    tk.Label(window, text="Ejercicio 3.6: Ecualizar", font=tkf.Font(size=30)).pack(padx=120, pady=10)
+    hide()
+    histogramEq.show(window)
 
 def show318():
     ## Esto lo hacemos en archivos separados para cada ejercicio
@@ -50,8 +59,7 @@ def show329():
 
 
 def showMainMenu():
-    window = tk.Tk()
-
+    global window
     window.title("Semana 4")
 
     tk.Label(window, text="Ejercicios Semana 4", font=tkf.Font(size=25)).pack(padx=120, pady=10)
