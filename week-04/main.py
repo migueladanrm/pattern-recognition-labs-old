@@ -5,6 +5,9 @@ import tkinter.font as tkf
 import blueScreenMatting
 import histogramEq
 
+import color_balance
+from tkinter.filedialog import askopenfilename
+
 window = tk.Tk()
 
 def getButton(window, text, action):
@@ -18,12 +21,15 @@ def show():
     global window
     window.deiconify()
 
-def show31():
-    ## Esto lo hacemos en archivos separados para cada ejercicio
-    window = tk.Tk()
-    window.title("Ejercicios - Semana 4")
+def open_file():
+    filename = askopenfilename(filetypes=[("image", "*.jpg *.png *.tif")])
+    return filename
 
-    tk.Label(window, text="Ejercicio 3.1: Color", font=tkf.Font(size=30)).pack(padx=120, pady=10)
+def show31():
+    file = open_file()
+    print(file)
+    color_balance.create_ui(file)
+
 
 def show33():
     hide()
